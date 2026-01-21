@@ -1,0 +1,27 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Docker data
+docker-compose.override.yml
+*.log
+docker/volumes/
+**/volumes/
+
+# Traefik data
+traefik_data/
+
+# n8n data
+n8n_data/
+.local-files/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
