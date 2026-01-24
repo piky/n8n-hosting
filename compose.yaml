@@ -1,4 +1,7 @@
 services:
+  dind:
+    image: docker:dind
+
   traefik:
     image: "traefik"
     restart: always

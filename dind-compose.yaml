@@ -1,0 +1,57 @@
+services:
+  dind:
+    image: docker:dind
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - 5678:5678
+    environment:
+      - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+      - QUEUE_HEALTH_CHECK_ACTIVE=true # Enable health check endpoints
+    healthcheck:
+      test: ["CMD", "sh", "-c", "wget -q -T 5 -O - http://localhost:5678/healthz/readiness > /dev/null || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - local_files:/files
+
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    environment:
+      - PUBLIC_HOSTNAME=${SUBDOMAIN}.${DOMAIN_NAME:-localhost}   # Public hostname that is configured in CloudFlare Tunnels
+    volumes:
+      # - ./conf:/etc/caddy   # Uncomment this line to use custom Caddyfile 
+      - ./site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    command: caddy reverse-proxy --from ${SUBDOMAIN}.${DOMAIN_NAME:-localhost}:80 --to n8n:5678
+    # depends_on:
+    #   open-webui:
+    #     condition: service_healthy
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    # depends_on:
+    #   open-webui:
+    #     condition: service_healthy
+
+volumes:
+  caddy_data:
+  caddy_config:
+  n8n_data:
+  local_files:
