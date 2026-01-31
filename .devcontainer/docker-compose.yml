@@ -22,9 +22,3 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
-  # Always pull the models after started  
-  ollama:
-    command:
-      - "ollama pull qwen2.5vl:3b"
-      - "ollama pull gemma3:4b"
- 
