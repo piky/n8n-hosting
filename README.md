@@ -54,10 +54,13 @@ flowchart TB
 * CloudFlare Tunnel integration to expose your local n8n instance to the internet
 
 ## Pre-requisites
-The `.env` file that contains:
+The `.env` file that contains all these required credentials:
 `DOMAIN_NAME`
 `SUBDOMAIN`
 `TUNNEL_TOKEN` is CloudFlare tunnel token
+
+### n8n Cloud Free Trial 
+Check out the [n8n for 14 days free trial](https://n8n.io). 
 
 ## How-to run 
 `docker compose up -d`
