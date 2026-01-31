@@ -61,9 +61,6 @@ services:
   ollama:
     image: ollama/ollama
     restart: always
-    command: 
-      - "ollama pull gemma3:4b"
-      - "ollama pull qwen2.5vl:3b"
     volumes:
       - ollama:/root/.ollama
 
