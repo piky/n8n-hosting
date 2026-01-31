@@ -61,3 +61,8 @@ The `.env` file that contains:
 
 ## How-to run 
 `docker compose up -d`
+
+## Configure workflow
+1. To be able to import example workflow you need to create new workflow first.
+2. Create a credential that point to Ollama.
+3. Copy the generated `webhook` from `Line Messaging API`.
