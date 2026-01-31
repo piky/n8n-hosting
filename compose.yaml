@@ -63,10 +63,6 @@ services:
     restart: always
     volumes:
       - ollama:/root/.ollama
-    command:
-      - "ollama pull qwen2.5vl:3b"
-      - "ollama pull gemma3:4b"
-      - "ollama ls"
 
   cloudflared:
     image: cloudflare/cloudflared:latest
