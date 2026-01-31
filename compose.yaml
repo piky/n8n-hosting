@@ -58,6 +58,12 @@ services:
       - n8n_data:/home/node/.n8n
       - ./local-files:/files
 
+  ollama:
+    image: ollama/ollama
+    restart: always
+    volumes:
+      - ollama:/root/.ollama
+
   cloudflared:
     image: cloudflare/cloudflared:latest
     restart: unless-stopped
@@ -69,3 +75,4 @@ services:
 volumes:
   n8n_data:
   traefik_data:
+  ollama:
