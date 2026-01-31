@@ -63,6 +63,9 @@ The `.env` file that contains:
 `docker compose up -d`
 
 ## Configure workflow
-1. To be able to import example workflow you need to create new workflow first.
-2. Create a credential that point to Ollama.
-3. Copy the generated `webhook` from `Line Messaging API`.
+1. To be able to import the example workflow you need to create new workflow from `Start from scratch` first.
+2. Create a credential for your provider of choice. Here the Ollama Cloud endpoint will be used.
+3. Create Line API credentials.
+4. Install Line Messaging node by community.
+5. Copy the generated `webhook` from `Line Messaging API`.
+6. Do not for get to `Publish` the workflow.
