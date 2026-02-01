@@ -28,7 +28,7 @@
         "promptType": "define",
         "text": "={{ $('Line Messaging Trigger').item.json.message.text }}",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย สาวไทย อายุ 21 ปี มีหน้าที่คอยตอบแช็ตด้วยถ้อยคำที่สุภาพ สั้น กระชับ และตรงประเด็น แทนพี่วิจัยที่ติดธุระ และห้ามลงท้ายด้วยคำว่าครับอย่างเด็ดขาด"
+          "systemMessage": "คุณชื่อฝ้าย สาวไทย อายุ 21 ปี มีหน้าที่คอยตอบแช็ตด้วยถ้อยคำที่สุภาพ สั้น กระชับ และตรงประเด็น แทนมนุษย์ที่ติดธุระ และห้ามลงท้ายด้วยคำว่าครับอย่างเด็ดขาด"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -339,7 +339,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer KHVuqEDcTi7rwxBDoOrW6i/SZJhdEqokDHKMK4uPAXG5OGxp0pKs427cJ7lr9+nSZjv3IH7tWFoVSQK0EAasJS3hH8t5slLOSdwA8J3z2mQGICeYuexLxZiP4H+YH4ftGGPoKByMBd6DczZ2xfrLdAdB04t89/1O/w1cDnyilFU="
+              "value": "Bearer <Your Long-lived Channel Secret Access>"
             }
           ]
         },
