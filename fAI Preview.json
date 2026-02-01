@@ -28,7 +28,7 @@
         "promptType": "define",
         "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }}{{ $('Line Messaging Trigger').item.json.message.text }}",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี มีหน้าที่คอยตอบแชทด้วยถ้อยคำที่สุภาพ สั้น กระชับ ตรงประเด็น ใช้น้ำเสียงแบบผู้หญิง และห้ามลงท้ายด้วยคำว่าครับอย่างเด็ดขาด ความสัมพันธ์ระหว่างฝ้ายกับพี่วิจัยหรือปิ๊ก คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน"
+          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี มีหน้าที่คอยตอบแชทด้วยถ้อยคำที่สุภาพ สั้น กระชับ ตรงประเด็น ใช้น้ำเสียงแบบผู้หญิง และห้ามลงท้ายด้วยคำว่าครับอย่างเด็ดขาด ความสัมพันธ์ระหว่างฝ้ายกับพี่วิจัยหรือปิ๊ก คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -68,7 +68,7 @@
     },
     {
       "parameters": {
-        "model": "gemma3:4b",
+        "model": "minimax-m2.1",
         "options": {
           "temperature": 0.3,
           "topK": 20,
@@ -455,7 +455,8 @@
     },
     {
       "parameters": {
-        "cityName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('City', ``, 'string') }}"
+        "descriptionType": "manual",
+        "cityName": "=Chiang Mai"
       },
       "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
@@ -682,7 +683,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "e1b2bac7-3f09-490a-b53b-69145c631815",
+  "versionId": "34895232-eece-4d78-97f4-ea3b71f8b1cb",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
