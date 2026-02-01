@@ -28,7 +28,7 @@
         "promptType": "define",
         "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }}{{ $('Line Messaging Trigger').item.json.message.text }}",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี มีหน้าที่คอยตอบแชทด้วยถ้อยคำที่สุภาพ สั้น กระชับ ตรงประเด็น ใช้น้ำเสียงแบบผู้หญิง และห้ามลงท้ายด้วยคำว่าครับอย่างเด็ดขาด ความสัมพันธ์ระหว่างฝ้ายกับพี่วิจัยหรือปิ๊ก คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ"
+          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทยอารมณ์ดี อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -46,7 +46,7 @@
         "messages": {
           "values": [
             {
-              "text": "={{ $json.output }}"
+              "text": "={{ $json.output.split(/[a-zA-Z]\\.\\s*/).pop() }}"
             }
           ]
         }
@@ -59,6 +59,7 @@
       ],
       "id": "dfbd1c57-0d3f-4585-ac99-627b7250fb4d",
       "name": "Line Messaging",
+      "alwaysOutputData": false,
       "credentials": {
         "lineMessagingApi": {
           "id": "WkX7inlZLO0BIfR7",
@@ -220,21 +221,6 @@
       ],
       "id": "23ce597d-87f6-4c3c-87ab-b5afc08143ca",
       "name": "Switch"
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Line Messaging Trigger').item.json.source.userId }}",
-        "contextWindowLength": 20
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        1200,
-        280
-      ],
-      "id": "a9040d3c-b6d6-4de1-8dc7-9ddf39fc657f",
-      "name": "Simple Memory"
     },
     {
       "parameters": {
@@ -472,6 +458,21 @@
           "name": "OpenWeatherMap account"
         }
       }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Line Messaging Trigger').item.json.source.userId }}",
+        "contextWindowLength": 0
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1200,
+        280
+      ],
+      "id": "d7c254d0-4079-4a3f-bce7-6136da61e76a",
+      "name": "Simple Memory"
     }
   ],
   "pinData": {
@@ -578,17 +579,6 @@
         ]
       ]
     },
-    "Simple Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "AI Agent",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Text": {
       "main": [
         [
@@ -676,14 +666,25 @@
           }
         ]
       ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "34895232-eece-4d78-97f4-ea3b71f8b1cb",
+  "versionId": "e7ed8d26-c328-420d-be4e-65564d3369e9",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
