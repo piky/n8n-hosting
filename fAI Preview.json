@@ -26,7 +26,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }}{{ $('Line Messaging Trigger').item.json.message.text }}",
+        "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }} {{ $('Line Messaging Trigger').item.json.message.text }}",
         "options": {
           "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทยอารมณ์ดี อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ"
         }
@@ -684,7 +684,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "e7ed8d26-c328-420d-be4e-65564d3369e9",
+  "versionId": "92e8d337-b602-41ea-b2d1-409fee745022",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
