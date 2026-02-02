@@ -28,7 +28,7 @@
         "promptType": "define",
         "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }} The user said \"{{ $('Line Messaging Trigger').item.json.message.text }}\"",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทยอารมณ์ดี อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ Date & Time ถ้าเกี่ยวกับวันที่และเวลา\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ\n\nCRITICAL: Output ONLY the final conversational message. Do NOT include:\n- Any thinking process about what the user is asking\n- Any explanation of what you found or how you'll respond\n- Any meta-commentary like \"The user is...\" or \"I should respond...\" or \"From the search results...\"\n- Any analysis before the actual message\n\nStart your response directly with the message itself. If the first character of your output is not Thai or part of the actual conversational reply, you're doing it wrong."
+          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ Date & Time ถ้าเกี่ยวกับวันที่และเวลา\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ\n\nCRITICAL: Output ONLY the final conversational message. Do NOT include:\n- Any thinking process about what the user is asking\n- Any explanation of what you found or how you'll respond\n- Any meta-commentary like \"The user is...\" or \"I should respond...\" or \"From the search results...\"\n- Any analysis before the actual message\n\nStart your response directly with the message itself. If the first character of your output is not Thai or part of the actual conversational reply, you're doing it wrong."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -69,12 +69,8 @@
     },
     {
       "parameters": {
-        "model": "minimax-m2.1",
-        "options": {
-          "temperature": 0.2,
-          "topK": 10,
-          "topP": 0.1
-        }
+        "model": "gpt-oss:20b",
+        "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
@@ -442,7 +438,8 @@
     {
       "parameters": {
         "descriptionType": "manual",
-        "cityName": "=Chiang Mai"
+        "toolDescription": "Gets current and future weather information provided by OpenWeatherMap",
+        "cityName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('City', ``, 'string') }}"
       },
       "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
@@ -767,12 +764,12 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "6896369a-6972-4f52-832d-c05c6bfeec33",
+  "versionId": "d0f1647a-b238-4c60-b290-abf51aa90ab6",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
