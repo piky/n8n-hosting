@@ -11,7 +11,7 @@
       "typeVersion": 1,
       "position": [
         48,
-        616
+        624
       ],
       "id": "d20066a3-0495-48a7-b109-e340c77b653c",
       "name": "Line Messaging Trigger",
@@ -26,15 +26,15 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }} The user said {{ $('Line Messaging Trigger').item.json.message.text }} {{ $json.message.type }}",
+        "text": "={{ $('Line Messaging Trigger').item.json.message.text }} {{ $json.message.type }}",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ Date & Time ถ้าเกี่ยวกับวันที่และเวลา\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ\nIf sticker presented simply response with smiling emoji 😊 instead.\n\nCRITICAL: Output ONLY the final conversational message. Do NOT include:\n- Any thinking process about what the user is asking\n- Any explanation of what you found or how you'll respond\n- Any meta-commentary like \"The user is...\" or \"I should respond...\" or \"From the search results...\"\n- Any analysis before the actual message\n\nStart your response directly with the message itself. If the first character of your output is not Thai or part of the actual conversational reply, you're doing it wrong."
+          "systemMessage": "น้องชื่อฝ้าย เป็นสาวไทย อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ และตรงประเด็น\nให้เรียกใช้ Date & Time ถ้าเกี่ยวกับวันที่และเวลา\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ\nIf sticker presented simply response with smiling emoji 😊 instead.\n\nCRITICAL: Output ONLY the final conversational message. Do NOT include:\n- User's messages and questions\n- Any analysis before the actual message\n- Any thinking process about what the user is asking\n- Any explanation of what you found or how you'll respond\n- Any meta-commentary like \"The user is...\" or \"I should respond...\" or \"From the search results...\"\n\nStart your response directly with the message itself. If the first character of your output is not Thai or part of the actual conversational reply, you're doing it wrong."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        840,
+        848,
         112
       ],
       "id": "c2460b86-e8c6-4e35-8e4d-3ebcee811e31",
@@ -213,7 +213,7 @@
       "typeVersion": 3.4,
       "position": [
         272,
-        568
+        576
       ],
       "id": "23ce597d-87f6-4c3c-87ab-b5afc08143ca",
       "name": "Switch"
@@ -233,7 +233,7 @@
       "typeVersion": 1,
       "position": [
         496,
-        1000
+        1008
       ],
       "id": "43812927-a673-4e02-8d51-db478ec19676",
       "name": "Audio",
@@ -259,7 +259,7 @@
       "typeVersion": 1,
       "position": [
         496,
-        808
+        816
       ],
       "id": "0dfdcc51-0115-4874-ad9e-fad816832939",
       "name": "Video",
@@ -309,7 +309,7 @@
       "typeVersion": 4.3,
       "position": [
         496,
-        616
+        624
       ],
       "id": "1d5b3a11-ddc1-46d3-826f-30eadf523684",
       "name": "HTTP Request"
@@ -325,8 +325,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        840,
-        616
+        848,
+        624
       ],
       "id": "727bec88-613e-467a-bd2c-6691ae8d1304",
       "name": "AI Agent1"
@@ -344,7 +344,7 @@
       "typeVersion": 1,
       "position": [
         912,
-        840
+        848
       ],
       "id": "82d6417a-05ab-47a5-b437-43fec011c7a2",
       "name": "Ollama Chat Model1",
@@ -367,7 +367,7 @@
       "typeVersion": 3.1,
       "position": [
         1312,
-        616
+        624
       ],
       "id": "21d789f6-2937-41d7-beac-3fb4d19634b5",
       "name": "AI Agent2"
@@ -384,8 +384,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        1384,
-        840
+        1392,
+        848
       ],
       "id": "b6724c73-78e3-4ca0-b469-625b35d9a633",
       "name": "Ollama Chat Model2",
@@ -454,7 +454,7 @@
         "promptType": "define",
         "text": "={{ $json.output }}",
         "options": {
-          "systemMessage": "You are a Thai named Fai (ฝ้าย). Re-construct the actual final messages using Thai female tone without any meta-commentary like:\n- The user is asking...\n- I called...\n- Then I called...\n- The search result...\n- From the search\n- I need to...\n- Now I need to...\n- I should...\nSimply response with smiling emoji 😊 stead if no input."
+          "systemMessage": "You are a Thai named Fai (ฝ้าย). Re-construct the actual final messages using Thai female tone without any meta-commentary like:\n- The user is asking...\n- I/We called...\n- Then I/We called...\n- The search result...\n- From the search\n- I/We need to...\n- Now I/We need to...\n- I/We should...\nRemove \"ครับ\" and replace with \"คะ\" or \"ค่ะ\".\nSimply response with smiling emoji 😊 stead if no input."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -474,7 +474,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        1320,
+        1328,
         336
       ],
       "id": "d117c212-46c9-4c30-8cd6-54d88e3ad4a1",
@@ -495,7 +495,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1448,
+        1456,
         336
       ],
       "id": "e63e0c08-8c84-45bd-9ac7-75683d43ccbf",
@@ -744,7 +744,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "a0fb2730-4163-4f66-b06f-d8bed3142775",
+  "versionId": "5522e0b3-efc6-4ad4-b4ce-f02aed91313a",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
