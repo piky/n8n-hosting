@@ -79,5 +79,9 @@ The `.env` file that contains all these required credentials:
 5. Copy the generated `webhook` from `Line Messaging API`.
 6. Do not for get to `Publish` the workflow.
 
+## Challenges
+* Wisely choose the most *COST-EFFICIENCY * model that suits your node/task.
+* Searching nodes/templates from community first before draw your own workflow.
+
 ## Contribution
 [Issues](https://github.com/piky/n8n-hosting/issues) or [suggestions](https://github.com/piky/n8n-hosting/discussions) for further improvement are welcome.
