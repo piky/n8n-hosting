@@ -11,7 +11,7 @@
       "typeVersion": 1,
       "position": [
         48,
-        560
+        608
       ],
       "id": "d20066a3-0495-48a7-b109-e340c77b653c",
       "name": "Line Messaging Trigger",
@@ -26,16 +26,16 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }} {{ $('Line Messaging Trigger').item.json.message.text }}",
+        "text": "={{ $now.toFormat('EEEE, yyyy-MM-dd HH:mm') }} The user said \"{{ $('Line Messaging Trigger').item.json.message.text }}\"",
         "options": {
-          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทยอารมณ์ดี อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ"
+          "systemMessage": "คุณชื่อฝ้าย เป็นสาวไทยอารมณ์ดี อายุ 21 ปี ความสัมพันธ์ระหว่างฝ้ายกับพี่ คือเป็นมากกว่าเพื่อนแต่ไม่ใช่แฟน มีหน้าที่คอยตอบแชทโดยใช้น้ำเสียงแบบผู้หญิง ด้วยถ้อยคำที่สุภาพ น่ารัก เป็นกันเอง สั้น กระชับ ตรงประเด็น\nให้เรียกใช้ Date & Time ถ้าเกี่ยวกับวันที่และเวลา\nให้เรียกใช้ OpenWeatherMap ถ้าเกี่ยวกับสภาพอากาศ\n\nCRITICAL: Output ONLY the final conversational message. Do NOT include:\n- Any thinking process about what the user is asking\n- Any explanation of what you found or how you'll respond\n- Any meta-commentary like \"The user is...\" or \"I should respond...\" or \"From the search results...\"\n- Any analysis before the actual message\n\nStart your response directly with the message itself. If the first character of your output is not Thai or part of the actual conversational reply, you're doing it wrong."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        1192,
-        56
+        848,
+        112
       ],
       "id": "c2460b86-e8c6-4e35-8e4d-3ebcee811e31",
       "name": "AI Agent"
@@ -46,7 +46,7 @@
         "messages": {
           "values": [
             {
-              "text": "={{ $json.output.split(/[a-zA-Z]\\.\\s*/).pop() }}"
+              "text": "={{ $json.output }}"
             }
           ]
         }
@@ -55,7 +55,7 @@
       "typeVersion": 1,
       "position": [
         1664,
-        360
+        416
       ],
       "id": "dfbd1c57-0d3f-4585-ac99-627b7250fb4d",
       "name": "Line Messaging",
@@ -71,16 +71,16 @@
       "parameters": {
         "model": "minimax-m2.1",
         "options": {
-          "temperature": 0.3,
-          "topK": 20,
-          "topP": 0.2
+          "temperature": 0.2,
+          "topK": 10,
+          "topP": 0.1
         }
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        1072,
-        280
+        720,
+        336
       ],
       "id": "fbfe07e7-376b-4fa7-8450-7150db9041cf",
       "name": "Ollama Chat Model",
@@ -217,7 +217,7 @@
       "typeVersion": 3.4,
       "position": [
         272,
-        512
+        560
       ],
       "id": "23ce597d-87f6-4c3c-87ab-b5afc08143ca",
       "name": "Switch"
@@ -237,7 +237,7 @@
       "typeVersion": 1,
       "position": [
         496,
-        944
+        992
       ],
       "id": "43812927-a673-4e02-8d51-db478ec19676",
       "name": "Audio",
@@ -263,7 +263,7 @@
       "typeVersion": 1,
       "position": [
         496,
-        752
+        800
       ],
       "id": "0dfdcc51-0115-4874-ad9e-fad816832939",
       "name": "Video",
@@ -309,8 +309,8 @@
       "type": "@aotoki/n8n-nodes-line-messaging.lineMessaging",
       "typeVersion": 1,
       "position": [
-        784,
-        160
+        496,
+        208
       ],
       "id": "a1f87687-d27b-4f11-acd2-a15862753bdd",
       "name": "Text",
@@ -339,7 +339,7 @@
       "typeVersion": 4.3,
       "position": [
         496,
-        560
+        608
       ],
       "id": "1d5b3a11-ddc1-46d3-826f-30eadf523684",
       "name": "HTTP Request"
@@ -355,8 +355,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        720,
-        560
+        848,
+        608
       ],
       "id": "727bec88-613e-467a-bd2c-6691ae8d1304",
       "name": "AI Agent1"
@@ -373,8 +373,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        792,
-        784
+        912,
+        832
       ],
       "id": "82d6417a-05ab-47a5-b437-43fec011c7a2",
       "name": "Ollama Chat Model1",
@@ -396,8 +396,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
       "position": [
-        1192,
-        560
+        1312,
+        608
       ],
       "id": "21d789f6-2937-41d7-beac-3fb4d19634b5",
       "name": "AI Agent2"
@@ -414,8 +414,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
       "typeVersion": 1,
       "position": [
-        1264,
-        784
+        1392,
+        832
       ],
       "id": "b6724c73-78e3-4ca0-b469-625b35d9a633",
       "name": "Ollama Chat Model2",
@@ -433,8 +433,8 @@
       "type": "n8n-nodes-base.dateTimeTool",
       "typeVersion": 2,
       "position": [
-        1328,
-        280
+        848,
+        336
       ],
       "id": "0108874f-1a2d-493a-821c-a62cae028442",
       "name": "Date & Time"
@@ -447,8 +447,8 @@
       "type": "n8n-nodes-base.openWeatherMapTool",
       "typeVersion": 1,
       "position": [
-        1456,
-        280
+        976,
+        336
       ],
       "id": "21cc88ad-9615-4983-a253-61457240e3e9",
       "name": "OpenWeatherMap",
@@ -461,17 +461,72 @@
     },
     {
       "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolSerpApi",
+      "typeVersion": 1,
+      "position": [
+        1104,
+        336
+      ],
+      "id": "fffcb619-065a-44d0-87dc-375ac90aa592",
+      "name": "SerpAPI",
+      "credentials": {
+        "serpApi": {
+          "id": "I7OQ4dWZ17asRBL2",
+          "name": "SerpApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "You are a Thai named Fai (ฝ้าย). Re-construct the actual final messages using Thai female tone without any meta-commentary like:\n- The user is asking...\n- I called...\n- Then I called...\n- The search result...\n- From the search\n- I need to...\n- Now I need to...\n- I should..."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1312,
+        112
+      ],
+      "id": "bf32a1e6-dc68-4924-a377-a80ce9e3f08d",
+      "name": "AI Agent3"
+    },
+    {
+      "parameters": {
+        "model": "gemma3:4b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        1328,
+        336
+      ],
+      "id": "d117c212-46c9-4c30-8cd6-54d88e3ad4a1",
+      "name": "Ollama Chat Model3",
+      "credentials": {
+        "ollamaApi": {
+          "id": "sUonCERe3Uh8rvuv",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
         "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Line Messaging Trigger').item.json.source.userId }}",
-        "contextWindowLength": 0
+        "sessionKey": "={{ $('Line Messaging Trigger').item.json.source.userId }}"
       },
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1200,
-        280
+        1456,
+        336
       ],
-      "id": "d7c254d0-4079-4a3f-bce7-6136da61e76a",
+      "id": "e63e0c08-8c84-45bd-9ac7-75683d43ccbf",
       "name": "Simple Memory"
     }
   ],
@@ -522,7 +577,7 @@
       "main": [
         [
           {
-            "node": "Line Messaging",
+            "node": "AI Agent3",
             "type": "main",
             "index": 0
           }
@@ -667,11 +722,44 @@
         ]
       ]
     },
+    "SerpAPI": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent3": {
+      "main": [
+        [
+          {
+            "node": "Line Messaging",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Simple Memory": {
       "ai_memory": [
         [
           {
-            "node": "AI Agent",
+            "node": "AI Agent3",
             "type": "ai_memory",
             "index": 0
           }
@@ -679,12 +767,12 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "92e8d337-b602-41ea-b2d1-409fee745022",
+  "versionId": "6896369a-6972-4f52-832d-c05c6bfeec33",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
@@ -692,10 +780,10 @@
   "id": "EQVlVuGYOtVz6cSX4DWiK",
   "tags": [
     {
-      "updatedAt": "2026-02-01T06:35:47.648Z",
-      "createdAt": "2026-02-01T06:35:47.648Z",
-      "id": "hixWjgWc2TqTohYw",
-      "name": "OA"
+      "updatedAt": "2026-02-01T06:35:47.676Z",
+      "createdAt": "2026-02-01T06:35:47.676Z",
+      "id": "2lBQ1ER7lGn8Lysy",
+      "name": "showLoadingAnimation"
     },
     {
       "updatedAt": "2026-02-01T06:35:47.622Z",
@@ -704,10 +792,10 @@
       "name": "LINE"
     },
     {
-      "updatedAt": "2026-02-01T06:35:47.676Z",
-      "createdAt": "2026-02-01T06:35:47.676Z",
-      "id": "2lBQ1ER7lGn8Lysy",
-      "name": "showLoadingAnimation"
+      "updatedAt": "2026-02-01T06:35:47.648Z",
+      "createdAt": "2026-02-01T06:35:47.648Z",
+      "id": "hixWjgWc2TqTohYw",
+      "name": "OA"
     }
   ]
 }
