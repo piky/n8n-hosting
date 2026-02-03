@@ -64,8 +64,8 @@ The `.env` file that contains all these required credentials:
 |------------------|---------|------|
 | CloudFlare Domain Name| $1 |  |
 | n8n Cloud ([free 14-day trial](https://n8n.io)) | $29 | *self-hosted VPS ~$10* |
-| LINE Official Account for Messaging API| $40 |  |
 | OpenAI LLM | $10 | *Credit top-up can be varied* |
+| LINE Official Account for Messaging API| **Free for 1:1 chat messaging** | $40 for broadcast |
 | **Sum** | **$80** |
 
 ## How-to Run 
