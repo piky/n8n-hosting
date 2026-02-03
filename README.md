@@ -54,18 +54,20 @@ flowchart TB
 * CloudFlare Tunnel integration to expose your local n8n instance to the internet
 
 ## Pre-requisites
-The `.env` file that contains all these required credentials:
-`DOMAIN_NAME`
-`SUBDOMAIN`
-`TUNNEL_TOKEN` (CloudFlare tunnel token)
+The `.env` file that contains all these required credentials:  
+```console
+SUBDOMAIN=n8n
+DOMAIN_NAME=yourdomain.com
+TUNNEL_TOKEN=<CloudFlare tunnel token>
+```
 
 ### Estimated Monthly Cost
-| Service Provider | Cost/mo | Note |
+| Service Provider | Monthly Cost | *Notes |
 |------------------|---------|------|
-| CloudFlare Domain Name| $1 |  |
 | n8n Cloud ([free 14-day trial](https://n8n.io)) | $29 | *self-hosted VPS ~$10* |
 | OpenAI LLM | $10 | *Credit top-up can be varied* |
-| LINE Official Account for Messaging API| **Free for 1:1 chat messaging** | $40 for broadcast |
+| LINE Official Account for Messaging API| Free for 1:1 chat messaging | *$40 for broadcast* |
+| CloudFlare Domain Name| $1 |  |
 | **Sum** | **$80** |
 
 ## How-to Run 
