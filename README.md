@@ -74,6 +74,7 @@ TUNNEL_TOKEN=<CloudFlare tunnel token>
 | **Sum** | **$80** |
 
 ## How-to Run 
+Just in case self-host n8n in home lab enviroment:  
 `docker compose up -d`
 
 ## Configure an Example Workflow
