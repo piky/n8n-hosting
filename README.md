@@ -68,6 +68,7 @@ TUNNEL_TOKEN=<CloudFlare tunnel token>
 | OpenAI LLM | $10 | *Credit top-up can be varied* |
 | LINE Official Account for Messaging API| Free for 1:1 chat messaging | *$40 for broadcast* |
 | CloudFlare Domain Name| $1 |  |
+| Ollama Cloud for LLM | free |  |
 | **Sum** | **$80** |
 
 ## How-to Run 
