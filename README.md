@@ -50,7 +50,7 @@ flowchart TB
 ## Key Features
 * Docker Compose setups for various deployment scenarios (basic, with PostgreSQL, with worker mode)
 * Kubernetes manifests for K8s deployments
-* Caddy web server configuration for reverse proxy
+* Traefik for reverse proxy
 * CloudFlare Tunnel integration to expose your local n8n instance to the internet
 
 ## Pre-requisites
