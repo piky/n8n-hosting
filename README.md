@@ -69,6 +69,8 @@ TUNNEL_TOKEN=<CloudFlare tunnel token>
 | LINE Official Account for Messaging API| Free for 1:1 chat messaging | *$40 for broadcast* |
 | CloudFlare Domain Name| $1 |  |
 | Ollama Cloud for LLM | free |  |
+| Search API | free | SerpAPI providers 250 searches free of charge |
+| OpenWeatherMap API | free |  |
 | **Sum** | **$80** |
 
 ## How-to Run 
