@@ -501,9 +501,18 @@
                 "type": "string",
                 "operation": "contains"
               }
+            },
+            {
+              "id": "0ae0dabc-b582-4c9f-9416-81719c413cd3",
+              "leftValue": "={{ $('Line Messaging Trigger').item.json.message.text }}",
+              "rightValue": "fAI",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {
           "ignoreCase": true
@@ -771,7 +780,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "5381ff24-1cf6-482b-befa-5c5b4a030c3b",
+  "versionId": "543c0cc2-79ba-456c-a158-9f86f798cf42",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "c325ec6719f967100171a439b8f62a2af47f86c80868febf736f9d593f8d716e"
